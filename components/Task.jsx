@@ -4,13 +4,21 @@ import colors from "../assets/color/colors";
 
 export default function Task({ text }) {
   return (
-    <View style={styles.item}>
-      <View style={styles.itemLeft}>
-        <View style={styles.square}></View>
-        <Text style={styles.itemText}>{text}</Text>
-      </View>
-      <View style={styles.circular}></View>
-    </View>
+    <>
+      {!text.length ? (
+        <View style={styles.item}>
+            <Text style={styles.itemText}>Start adding tasks ... </Text>
+        </View>
+      ) : (
+        <View style={styles.item}>
+          <View style={styles.itemLeft}>
+            <View style={styles.square}></View>
+            <Text style={styles.itemText}>{text}</Text>
+          </View>
+          <View style={styles.circular}></View>
+        </View>
+      )}
+    </>
   );
 }
 
@@ -39,6 +47,7 @@ const styles = StyleSheet.create({
   },
   itemText: {
     maxWidth: "80%",
+    color: "black",
   },
   circular: {
     width: 12,
